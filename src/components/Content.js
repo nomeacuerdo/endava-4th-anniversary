@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { database, storage } from '../firebase/firebase';
+import { database } from '../firebase/firebase';
 import IO from '../utils/IO';
 import ContentContainer from '../styled-components/ContentContainer';
 import Card from '../styled-components/Card';
@@ -18,7 +18,7 @@ const Content = () => {
     .map(x => x.map(([key,value]) => ({ key, ...value })))
     .map(setMessages)
     .listen()
-  })
+  },[])
 
   return (
     <ContentContainer>

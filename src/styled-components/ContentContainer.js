@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { secondary, black } from '../constants';
+import { black } from '../constants';
 
 const Column1 = styled.div`
   align-self: stretch;
