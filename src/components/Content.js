@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { database } from '../firebase/firebase';
+import { database, storage } from '../firebase/firebase';
 import IO from '../utils/IO';
 import ContentContainer from '../styled-components/ContentContainer';
 import Card from '../styled-components/Card';
+import ImageCard from './ImageCard';
 
 const db = IO(database);
 
@@ -14,7 +15,7 @@ const Content = () => {
     .map(raw => raw.toJSON())
     .map(data => data === null ? [] : data)
     .map(Object.entries)
-    .map(x => x.map(([,value]) => value.message))
+    .map(x => x.map(([key,value]) => ({ key, ...value })))
     .map(setMessages)
     .listen()
   })
@@ -23,8 +24,11 @@ const Content = () => {
     <ContentContainer>
       {!messages.length ?
        "No messages yet..."
-      : messages.map((msg,idx) => {
-      return <Card key={idx}>{msg}</Card>
+      : messages.map(({ key, message, type }) => {
+        if( type === "image" ){
+          return <ImageCard key={key} uuid={key} alt="image"/>
+        }
+        return <Card key={key}>{message}</Card>
       })}
     </ContentContainer>
   );

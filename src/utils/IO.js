@@ -1,5 +1,5 @@
 const compose = (fn0,fn1) => (...args) => fn0(fn1(...args))
-const IO = db => (path,callback=a=>a) => ({
+const IO = (db) => (path,callback=a=>a) => ({
   map: (fn) => IO(db)(path,compose(fn,callback)),
   listen: () => {
     const ref = db.ref(path);

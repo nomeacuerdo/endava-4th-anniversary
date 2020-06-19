@@ -8,8 +8,10 @@ import Container from './styled-components/Container';
 import Header from './styled-components/header';
 
 import logo from './assets/EndavaLogo.png';
+import AppContainer from './styled-components/AppContainer';
 
 const App = () => (
+  <AppContainer>
   <Container>
     <Cheems />
     <Header>
@@ -17,8 +19,9 @@ const App = () => (
     </Header>
     <TextUpload />
     <ImageUpload />
-    <Content />
   </Container>
+  <Content />
+  </AppContainer>
 );
 
 export default App;

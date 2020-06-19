@@ -5,9 +5,10 @@ const Header = styled.div`
   grid-area: header;
   justify-self: center;
   text-align: center;
+  padding: 24px;
 
   img {
-    max-height: 90%;
+    height: 60px;
   }
 `;
 

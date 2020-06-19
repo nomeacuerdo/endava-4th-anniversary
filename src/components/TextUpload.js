@@ -16,7 +16,8 @@ const TextSubmit = () => {
   const handleSubmit = e => {
     e.preventDefault();
     db("comments").create({
-      message: text
+      message: text,
+      type: "text",
     })
     .then(() => setText(""))
     .catch(console.error)

@@ -47,13 +47,7 @@ const Column2 = styled.div`
     }
   }
 
-  .upload-form {
-    display: ${props => props.display === '' ? 'block' : 'none' };
-  }
-
-  .thanks {
-    display: ${props => props.display === '' ? 'none' : 'block' };
-  }
+  
 `;
 
 export default Column2;
