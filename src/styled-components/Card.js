@@ -3,20 +3,24 @@ import styled from "styled-components";
 import { primary, secondary } from '../constants';
 
 const Card = styled.div`
-    width: 100%;
-    height: 100%;
-    min-height: 250px;
+    align-items: ${props => props.image ? 'center' : 'flex-start' };
+    background-color: ${primary};
     box-sizing: border-box;
+    color: ${secondary};
     display: flex;
     flex-direction: column;
-    align-items: ${props => props.image ? "center" : "flex-start" };
+    flex-grow: 1;
+    height: 230px;
     justify-content: ${props => props.image ? "center" : "flex-start" };
-    background-color: ${primary};
-    color: ${secondary};
+    margin: 0 10px 10px 0;
+    min-height: 230px;
+    min-width: 230px;
     padding: 16px;
+    width: 230px;
 
     & img {
-        width: 100%;
+        max-height: 100%;
+        max-width: 100%;
     }
 `
 

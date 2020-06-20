@@ -3,14 +3,17 @@ import { database } from '../firebase/firebase';
 
 import IO from '../utils/IO';
 import Column1 from '../styled-components/column1';
+import Textarea from '../styled-components/textarea';
+import Button from '../styled-components/Button';
 
 const db = IO(database);
 
 const TextSubmit = () => {
-
-  const [ text, setText ] = useState("")
+  const [ text, setText ] = useState("");
   const handleChange = e => {
-    setText(e.target.value);
+    if(e.target.value.length <= 200) {
+      setText(e.target.value);
+    }
   }
 
   const handleSubmit = e => {
@@ -24,11 +27,12 @@ const TextSubmit = () => {
   }
 
   return (
-    <Column1>
+    <Column1 displayCount={text.length > 0}>
     <form onSubmit={handleSubmit}>
       <h2>Send your message!</h2>
-      <textarea placeholder="Enter your message here!" value={text} onChange={handleChange}/>
-      <button>Send!</button>
+      <Textarea placeholder="Enter your message here!" value={text} onChange={handleChange}/>
+      <span>{text.length} / 200</span>
+      <Button secondary>Submit!</Button>
     </form>
     </Column1>
   );

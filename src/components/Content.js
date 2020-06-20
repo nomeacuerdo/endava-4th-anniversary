@@ -12,20 +12,21 @@ const Content = () => {
 
   useEffect(() => {
     return db("comments")
-    .map(raw => raw.toJSON())
-    .map(data => data === null ? [] : data)
-    .map(Object.entries)
-    .map(x => x.map(([key,value]) => ({ key, ...value })))
-    .map(setMessages)
-    .listen()
+      .map(raw => raw.toJSON())
+      .map(data => data === null ? [] : data)
+      .map(Object.entries)
+      .map(x => x.map(([key, value]) => ({ key, ...value })))
+      // .map(d => d.reverse())
+      .map(setMessages)
+      .listen();
   },[])
 
   return (
     <ContentContainer>
       {!messages.length ?
        "No messages yet..."
-      : messages.map(({ key, message, type }) => {
-        if( type === "image" ){
+      : messages.reverse().map(({ key, message, type }) => {
+        if(type === 'image') {
           return <ImageCard key={key} uuid={key} alt="image"/>
         }
         return <Card key={key}>{message}</Card>

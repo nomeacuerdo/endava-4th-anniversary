@@ -3,11 +3,14 @@ import styled from 'styled-components';
 import { primary, secondary, black } from '../constants';
 
 const Column2 = styled.div`
-  align-self: center;
+  align-self: start;
   background-color: ${secondary};
+  border: 1px solid ${primary};
   grid-area: column2;
+  height: 300px;
   justify-self: stretch;
   padding: 15px;
+  margin-bottom: 25px;
   
   h2 {
     color: ${black};

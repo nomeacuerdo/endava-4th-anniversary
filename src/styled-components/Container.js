@@ -6,6 +6,13 @@ const Container = styled.div`
   grid-template-columns: auto 250px 100px 250px auto;
   grid-template-areas: ". header header header ."
                        ". column1 . column2 .";
+
+  @media screen and (max-width: 640px) {
+    grid-template-columns: auto 250px auto;
+    grid-template-areas: ". header ."
+                         ". column1 ."
+                         ". column2 .";
+  }
 `;
 
 
