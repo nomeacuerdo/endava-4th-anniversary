@@ -46,15 +46,15 @@ const ImageUpload = () => {
 
   const Upload = () => (
     <div className="upload-form">
-      <h2>Send an image!</h2>
+      <h2>Send an image</h2>
       <input type="file" id="fail" onChange={handleImage} />
-      <label htmlFor="fail">Upload!</label>
+      <label htmlFor="fail">Upload Here</label>
     </div>
   )
 
   const Ready = () => (
     <div className="upload-form">
-      <h2>Send an image!</h2>
+      <h2>Send an image</h2>
       <Button primary onClick={handleSubmit}>Submit :-)</Button>
       <Button secondary onClick={handleReset}>Reset :-(</Button>
     </div>
@@ -63,7 +63,7 @@ const ImageUpload = () => {
   const Sent = () => (
     <div className="thanks">
       <h2>Thanks for your submission!</h2>
-      <Button primary onClick={handleReset}>Send another! :-D</Button>
+      <Button primary onClick={handleReset}>Send another :-D</Button>
     </div>
   )
 

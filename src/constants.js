@@ -1,3 +1,3 @@
 export const primary = '#de411b';
-export const secondary = '#ffffff';
-export const black = '#000000';
+export const secondary = '#eff3f4';
+export const black = '#46555c';

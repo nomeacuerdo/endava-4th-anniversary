@@ -9,7 +9,7 @@ const Button = styled.button`
   cursor: pointer;
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 18px;
-  margin-top: 25px;
+  margin-top: 5px;
   outline: none;
   padding: 15px;
   text-transform: uppercase;

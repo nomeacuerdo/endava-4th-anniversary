@@ -6,10 +6,11 @@ const Column1 = styled.div`
   align-self: start;
   background-color: ${primary};
   grid-area: column1;
-  height: 300px;
+  height: 210px;
   justify-self: stretch;
-  padding: 15px;
   margin-bottom: 25px;
+  padding: 15px;
+  text-align: center;
 
   h2 {
     color: ${secondary};

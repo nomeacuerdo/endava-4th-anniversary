@@ -5,21 +5,33 @@ import { primary, secondary, black } from '../constants';
 const Column2 = styled.div`
   align-self: start;
   background-color: ${secondary};
-  border: 1px solid ${primary};
+  border: 1px solid transparent;
+  display: flex;
   grid-area: column2;
-  height: 300px;
+  height: 210px;
   justify-self: stretch;
-  padding: 15px;
   margin-bottom: 25px;
+  padding: 15px;
+  text-align: center;
+
+  .upload-form,
+  .thanks {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+  }
   
   h2 {
+    align-self: flex-start;
     color: ${black};
+    flex-grow: 1;
     font-family: 'Roboto Condensed', sans-serif;
-    margin-bottom: 15px;
     text-transform: uppercase;
+    width: 100%;
   }
 
   input[type=file] {
+    align-self: flex-end;
     border: 1px solid transparent;
     clip: rect(0, 0, 0, 0);
     height: 1px;

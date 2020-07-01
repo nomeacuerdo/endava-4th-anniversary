@@ -29,10 +29,10 @@ const TextSubmit = () => {
   return (
     <Column1 displayCount={text.length > 0}>
     <form onSubmit={handleSubmit}>
-      <h2>Send your message!</h2>
-      <Textarea placeholder="Enter your message here!" value={text} onChange={handleChange}/>
+      <h2>Write a message</h2>
+      <Textarea placeholder="Enter your message here" value={text} onChange={handleChange}/>
       <span>{text.length} / 200</span>
-      <Button secondary>Submit!</Button>
+      <Button secondary>Share it</Button>
     </form>
     </Column1>
   );
