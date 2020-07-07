@@ -7,11 +7,15 @@ const ImageCard = ({ uuid, alt }) => {
     useEffect(() => {
         let cancelled = false;
         const ref = storage.ref(`/images/${uuid}`)
-        const attempt = () => {
+        const attempt = (n=0) => {
             ref.getDownloadURL()
             .then(url => {
                 !cancelled && setSrc(url);
-            }).catch(attempt)
+            }).catch(() => {
+                if(n < 3){
+                    attempt(n+1)
+                }
+            })
         }
         attempt();
         return () => {
