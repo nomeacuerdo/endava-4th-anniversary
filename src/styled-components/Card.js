@@ -7,6 +7,7 @@ const Card = styled.div`
   background-color: ${secondary};
   box-sizing: border-box;
   color: ${black};
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -14,7 +15,13 @@ const Card = styled.div`
   justify-content: ${props => props.image ? "center" : "flex-start" };
   margin: 0 15px 15px 0;
   padding: 16px;
+  transition: all .6s;
   width: 300px;
+  
+  &.active {
+    height: 600px;
+    width: 100%;
+  }
 
   & img {
       max-height: 100%;

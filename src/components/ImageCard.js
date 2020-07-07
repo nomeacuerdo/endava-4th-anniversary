@@ -27,8 +27,17 @@ const ImageCard = ({ uuid, alt }) => {
     }
   },[uuid]);
 
+  const expandDong = (e) => {
+    const card = e.currentTarget;
+    if (card.classList.contains('active')) {
+      card.classList.remove('active');
+    } else {
+      card.classList.add('active');
+    }
+  };
+
   return hiddenCard ? null : (
-    <Card image>
+    <Card image onClick={expandDong}>
       { src ? <img src={src} alt={alt}/> : 
         "Loading..."
       }
