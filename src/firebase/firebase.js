@@ -7,7 +7,7 @@ const firebaseConfig = {
   authDomain: 'endava-anniversary.firebaseapp.com',
   databaseURL: "https://endava-anniversary.firebaseio.com",
   projectId: "endava-anniversary",
-  storageBucket: "endava-anniversary",
+  storageBucket: "endava-anniversary.appspot.com",
   messagingSenderId: "633761913350",
   appId: "1:633761913350:web:c2581f761ee3383dabc187"
 };
