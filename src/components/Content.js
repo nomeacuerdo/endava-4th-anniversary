@@ -10,16 +10,16 @@ const db = IO(database);
 const Content = () => {
   const [messages, setMessages] = useState([]);
 
-  useEffect(() => {
-    return db("comments")
-      .map(raw => raw.toJSON())
-      .map(data => data === null ? [] : data)
-      .map(Object.entries)
-      .map(x => x.map(([key, value]) => ({ key, ...value })))
-      // .map(d => d.reverse())
-      .map(setMessages)
-      .listen();
-  },[])
+  // useEffect(() => {
+  //   return db("comments")
+  //     .map(raw => raw.toJSON())
+  //     .map(data => data === null ? [] : data)
+  //     .map(Object.entries)
+  //     .map(x => x.map(([key, value]) => ({ key, ...value })))
+  //     // .map(d => d.reverse())
+  //     .map(setMessages)
+  //     .listenOnce();
+  // },[])
 
   return (
     <ContentContainer>
@@ -28,6 +28,9 @@ const Content = () => {
       : messages.reverse().map(({ key, message, type }) => {
         if(type === 'image') {
           return <ImageCard key={key} uuid={key} alt="image"/>
+        }
+        if(type === 'img') {
+          console.info('Whatcha lookin` for? ', key);
         }
         return <Card key={key}>{message}</Card>
       })}
