@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { storage, database } from '../firebase/firebase';
+import imageCompression from 'browser-image-compression';
 import IO from '../utils/IO';
 
 import Column2 from '../styled-components/column2';
@@ -26,17 +27,24 @@ const ImageUpload = () => {
   };
 
   const handleSubmit = () => {
+    let uuid = null;
     db("comments").create({
       type: "image",
       message: imageFile.name
     }).then(data => {
-      const uuid = data.key;
-      return storage.ref(`/images/${uuid}`)
-      .put(imageFile);
+      uuid = data.key; 
+      const options = {
+        maxSizeMB: 1,
+        maxWidthOrHeight: 1920,
+        useWebWorker: true
+      }
+      return imageCompression(imageFile,options)
+    }).then(imageFile => {
+      return storage.ref(`/images/${uuid}`).put(imageFile);
     }).then(() => {
       setImageFile("");
       setState(SENT);
-    })
+    }).catch(console.error)
   }
 
   const handleReset = () => {
