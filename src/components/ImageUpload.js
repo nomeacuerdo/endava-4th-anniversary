@@ -14,6 +14,7 @@ const SENT = "sent";
 
 const ImageUpload = () => {
   const [state, setState] = useState(UPLOAD);
+  const [submitDisabled, setSubmitDisabled] = useState(false);
   const [imageFile, setImageFile] = useState('');
 
   const handleImage = (e) => {
@@ -28,6 +29,7 @@ const ImageUpload = () => {
 
   const handleSubmit = () => {
     let uuid = null;
+    setSubmitDisabled(true);
     db("comments").create({
       type: "image",
       message: imageFile.name
@@ -55,7 +57,7 @@ const ImageUpload = () => {
   const Upload = () => (
     <div className="upload-form">
       <h2>Send an image</h2>
-      <input type="file" id="fail" onChange={handleImage} />
+      <input type="file" accept="image/*" id="fail" onChange={handleImage} />
       <label htmlFor="fail">Upload Here</label>
     </div>
   )
@@ -63,7 +65,7 @@ const ImageUpload = () => {
   const Ready = () => (
     <div className="upload-form">
       <h2>Send an image</h2>
-      <Button primary onClick={handleSubmit}>Submit :-)</Button>
+      <Button disabled={submitDisabled} onClick={handleSubmit}>Submit :-)</Button>
       <Button secondary onClick={handleReset}>Reset :-(</Button>
     </div>
   )

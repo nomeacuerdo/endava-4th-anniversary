@@ -9,23 +9,23 @@ const ImageCard = ({ uuid, alt }) => {
   useEffect(() => {
     let cancelled = false;
     const ref = storage.ref(`/images/${uuid}`)
-    const attempt = (n=0) => {
+    const attempt = (n = 0) => {
       ref.getDownloadURL()
         .then(url => {
           !cancelled && setSrc(url);
         }).catch(() => {
-          if(n < 3){
+          if (n < 1) {
             attempt(n+1);
           } else {
             setHiddenCard(true);
           }
         })
-    }
+    };
     attempt();
     return () => {
       cancelled = true
-    }
-  },[uuid]);
+    };
+  }, [uuid]);
 
   const expandDong = (e) => {
     const card = e.currentTarget;

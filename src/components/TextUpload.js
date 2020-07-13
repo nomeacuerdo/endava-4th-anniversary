@@ -32,7 +32,7 @@ const TextSubmit = () => {
       <h2>Write a message</h2>
       <Textarea placeholder="Enter your message here" value={text} onChange={handleChange}/>
       <span>{text.length} / 200</span>
-      <Button secondary>Share it</Button>
+      <Button disabled={text.length === 0} secondary>Share it</Button>
     </form>
     </Column1>
   );
